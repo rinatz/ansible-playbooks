@@ -13,6 +13,7 @@
       - file
       - g++
       - gcc
+      - gdb
       - imagemagick
       - libbz2-dev
       - libc6-dev
@@ -47,5 +48,15 @@
       - xz-utils
       - zlib1g-dev
       - libmysqlclient-dev
+  tags:
+    - buildpack
+
+- name: Enable ptrace
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/sysctl.d/10-ptrace.conf
+    regexp: '^(kernel.yama.ptrace_scope)\s+=\s+\d+'
+    line: '\1 = 0'
+    backrefs: true
   tags:
     - buildpack

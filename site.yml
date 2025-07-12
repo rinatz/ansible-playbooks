@@ -7,7 +7,6 @@
     - scm
     - docker
     - buildpack
-    - gdb
     - rust
     - fzf
     - starship
