@@ -43,7 +43,9 @@
       - libxslt-dev
       - libyaml-dev
       - make
+      - openssh-client
       - patch
+      - procps
       - unzip
       - xz-utils
       - zlib1g-dev
