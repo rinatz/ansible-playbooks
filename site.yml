@@ -6,7 +6,7 @@
     - locale
     - scm
     - docker
-    - buildpack
+    - devtools
     - rust
     - fzf
     - starship

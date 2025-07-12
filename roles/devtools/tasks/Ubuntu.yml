@@ -51,7 +51,7 @@
       - zlib1g-dev
       - libmysqlclient-dev
   tags:
-    - buildpack
+    - devtools
 
 - name: Enable ptrace
   become: true
@@ -61,4 +61,4 @@
     line: '\1 = 0'
     backrefs: true
   tags:
-    - buildpack
+    - devtools
