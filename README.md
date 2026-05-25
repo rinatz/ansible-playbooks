@@ -2,17 +2,18 @@
 
 [![license](https://img.shields.io/badge/LICENSE-MIT-blue.svg)](LICENSE)
 
-This repository stores Ansible playbooks for provisioning local development environment.
+This repository contains Ansible playbooks for provisioning a local development environment.
+
+## Usage
+
+Run the bootstrap script from the repository root:
+
+```bash
+./bootstrap.sh
+```
+
+The script installs Ansible and executes `site.yml` locally.
 
 ## Supported OS
 
 - Ubuntu 22.04
-
-## Usage
-
-```shell
-$ python3 -m pip install --user ansible
-$ git clone https://github.com/rinatz/ansible-playbooks
-$ cd ansible-playbooks
-$ ansible-playbook -i localhost, -c local --ask-become-pass site.yml
-```
