@@ -55,10 +55,12 @@
 
 - name: Enable ptrace
   become: true
-  ansible.builtin.lineinfile:
-    path: /etc/sysctl.d/10-ptrace.conf
-    regexp: '^(kernel.yama.ptrace_scope)\s+=\s+\d+'
-    line: '\1 = 0'
-    backrefs: true
+  ansible.posix.sysctl:
+    name: kernel.yama.ptrace_scope
+    value: "0"
+    sysctl_file: /etc/sysctl.d/99-ptrace.conf
+    state: present
+    sysctl_set: true
+    reload: true
   tags:
     - devtools
