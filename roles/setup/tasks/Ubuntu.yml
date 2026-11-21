@@ -2,7 +2,7 @@
 - name: Configure apt
   become: true
   ansible.builtin.replace:
-    dest: /etc/apt/sources.list
+    dest: /etc/apt/sources.list.d/ubuntu.sources
     regexp: 'http://(.*\.)?archive\.ubuntu\.com/ubuntu/'
     replace: "http://jp.archive.ubuntu.com/ubuntu/"
   tags:
