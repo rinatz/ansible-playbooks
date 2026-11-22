@@ -8,6 +8,7 @@ function main() {
   sudo apt-add-repository --yes --update ppa:ansible/ansible
   sudo apt-get install -y ansible
 
+  ansible-galaxy collection install --requirements-file requirements.yml
   ansible-playbook -i "localhost," -c local site.yml
 }
 

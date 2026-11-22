@@ -5,7 +5,6 @@
     curl -fsSL https://sh.rustup.rs | bash -s -- -y
   args:
     executable: /bin/bash
-  register: result
-  changed_when: result.rc == 0
+    creates: "{{ ansible_env.HOME }}/.cargo/bin/rustup"
   tags:
     - rust

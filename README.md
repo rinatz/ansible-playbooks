@@ -16,4 +16,4 @@ The script installs Ansible and executes `site.yml` locally.
 
 ## Supported OS
 
-- Ubuntu 22.04
+- Ubuntu 24.04 LTS (Noble Numbat), including WSL

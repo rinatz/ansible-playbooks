@@ -5,7 +5,6 @@
     curl https://mise.run | sh
   args:
     executable: /bin/bash
-  register: result
-  changed_when: result.rc == 0
+    creates: "{{ ansible_env.HOME }}/.local/bin/mise"
   tags:
     - mise

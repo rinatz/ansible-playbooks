@@ -12,7 +12,7 @@
 - name: Install dotfiles
   ansible.builtin.shell: |
     set -o pipefail
-    curl -L http://bit.ly/rinatz-dotfiles | bash
+    curl -fsSL https://bit.ly/rinatz-dotfiles | bash
   args:
     executable: /bin/bash
   register: result

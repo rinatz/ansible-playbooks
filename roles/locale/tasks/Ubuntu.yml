@@ -5,15 +5,28 @@
     state: present
     update_cache: true
     cache_valid_time: 3600
-    name: language-pack-ja
+    name:
+      - language-pack-ja
+      - locales
   tags:
     - locale
 
-- name: Set locale
+- name: Generate Japanese locale
   become: true
-  ansible.builtin.command: localectl set-locale LANG=ja_JP.UTF-8
-  register: result
-  changed_when: result.rc == 0
+  community.general.locale_gen:
+    name: ja_JP.UTF-8
+    state: present
+  tags:
+    - locale
+
+- name: Set default locale
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/default/locale
+    regexp: "^LANG="
+    line: LANG=ja_JP.UTF-8
+    create: true
+    mode: "0644"
   tags:
     - locale
 

@@ -1,6 +1,15 @@
 ---
 - name: Run all roles
   hosts: all
+  pre_tasks:
+    - name: Verify supported operating system
+      ansible.builtin.assert:
+        that:
+          - ansible_facts["distribution"] == "Ubuntu"
+          - ansible_facts["distribution_version"] == "24.04"
+        fail_msg: This playbook supports Ubuntu 24.04 LTS only.
+      tags:
+        - always
   roles:
     - setup
     - locale

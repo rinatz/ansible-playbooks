@@ -8,15 +8,6 @@
   tags:
     - setup
 
-- name: Upgrade packages # noqa: package-latest
-  become: true
-  ansible.builtin.apt:
-    state: latest
-    update_cache: true
-    name: "*"
-  tags:
-    - setup
-
 - name: Upgrade dist packages
   become: true
   ansible.builtin.apt:
