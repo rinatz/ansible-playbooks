@@ -6,10 +6,3 @@
     depth: 1
   tags:
     - fzf
-
-- name: Install fzf
-  ansible.builtin.command: ~/.fzf/install --all
-  register: result
-  changed_when: result.rc == 0
-  tags:
-    - fzf
